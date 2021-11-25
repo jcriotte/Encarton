@@ -1,0 +1,6 @@
+<?php
+
+define('APP_API_CONSUMERKEY', 'OAuth Consumer Key');
+define('APP_API_CONSUMERSECRET', 'OAuth Consumer Secret');
+define('APP_API_ACCESSTOKEN', 'OAuth Access Token');
+define('APP_API_TOKENSECRET', 'OAuth Token Secret');
