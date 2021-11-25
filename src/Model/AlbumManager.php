@@ -23,4 +23,15 @@ class AlbumManager extends AbstractManager
 
         return $this->pdo->lastInsertId();
     }
+
+    public function selectByArtist(int $artistId)
+    {
+        $query = "SELECT * FROM " . static::TABLE . " WHERE artist_id = :artistId";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(":artistId", $artistId, \PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
