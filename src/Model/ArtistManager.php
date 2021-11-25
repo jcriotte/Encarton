@@ -9,7 +9,7 @@ class ArtistManager extends AbstractManager
 {
     public const TABLE = "artist";
 
-    public function add($params)
+    public function add(array $params)
     {
         $query = "INSERT INTO artist(id, name, picture) VALUES(:id, :name, :picture)";
 
@@ -21,5 +21,19 @@ class ArtistManager extends AbstractManager
         $stmt->execute();
 
         return $this->pdo->lastInsertId();
+    }
+
+    public function selectByNameLike(string $input, string $orderBy = '', string $direction = 'ASC'): array
+    {
+        $query = 'SELECT * FROM ' . static::TABLE . ' WHERE name LIKE :input';
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(":input", $input, \PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }

@@ -23,4 +23,9 @@ class WelcomeController extends AbstractController
     {
         return $this->twig->render('Home/Welcome.html.twig');
     }
+
+    public function about()
+    {
+        return $this->twig->render('Item/AboutUs.html.twig');
+    }
 }
