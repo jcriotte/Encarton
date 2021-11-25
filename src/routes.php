@@ -13,6 +13,7 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+    'genre' => ['TestMSApiController', 'index',],
     'Result/artist' => ['ResultController','artist'],
     'Result/album' => ['ResultController','album'],
     '' => ['WelcomeController', 'index'],

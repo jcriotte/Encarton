@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Condensed:wght@300&display=swap');
+
 .container-artist {
     display:flex;
     flex-direction: row;
     width:100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.6rem;
 }
 
 .result-albums {
     text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.6rem;
 }
 
 .albums {
