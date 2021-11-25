@@ -1,0 +1,25 @@
+.container-artist {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.albums {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:50%;
+    list-style-type: none;
+}
+
+.artist {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:50%;
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+}
