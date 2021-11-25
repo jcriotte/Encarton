@@ -70,3 +70,16 @@ h1{
 .search button:hover{
     background: #9EA059;
 }
+.jacket{
+    height: 300px;
+}
+.about{
+    height: 100vh !important;
+}
+.row-about{
+    padding-top: 30vh !important;
+}
+p {
+    color: #9EA059;
+    margin-left: 100px;
+}
