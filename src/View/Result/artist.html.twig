@@ -19,8 +19,9 @@
         <section class='artist'>
             <h2> Informations sur l'artiste<h2>
                 <ul>
+                    {% for artist in artists %}  
                     <li>{{ artist.name }}</li>
-                    <li>{{ artist.photo }}</li>
+                    {% endfor %}
                 </ul>
         </section>
     </main>
