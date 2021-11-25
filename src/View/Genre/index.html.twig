@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Liste des genres</h1>
+    <ul>
+        {# for genre in genres #}
+            <li><a href="/items/show?id={{ genre.id }}">{{ genre.id }}. {{ genre.name }}</a></li>
+        {# else #}
+            <li>Nothing to display</li>
+        {# endfor #}
+    </ul>
+{% endblock %}
