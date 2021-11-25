@@ -28,3 +28,8 @@ h1{
     color:#9EA059 !important;
     font-size: 1.3rem;
 }
+.Welcome{
+    background-image: url('/assets/images/Vinyls.jpg');
+    object-fit: cover; background-size: cover;
+    height: 100vh !important;
+}
