@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 class ResultController extends AbstractController
