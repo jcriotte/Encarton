@@ -1,10 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <main class='container-artist'>
-
+    <main>
         {# listes album #}
-        <section class='albums'>
+        <section class='result-albums'>
             <h2>Résultat<h2>
                 <ul>
                     {% for album in albums %}
@@ -14,3 +13,4 @@
                 </ul>
         </section>
     </main>
+{% endblock %}

@@ -4,6 +4,10 @@
     width:100%;
 }
 
+.result-albums {
+    text-align: center;
+}
+
 .albums {
     display:flex;
     flex-direction: column;
