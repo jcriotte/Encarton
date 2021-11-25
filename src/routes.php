@@ -18,4 +18,5 @@ return [
     'Result/album' => ['ResultController','album'],
     '' => ['WelcomeController', 'index'],
     'artist/search' => ['ArtistController', 'SearchArtist', ['input']],
+    'AboutUs' => ['WelcomeController', 'about'],
 ];
