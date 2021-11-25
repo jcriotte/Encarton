@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Condensed:wght@300&display=swap');
+
+.container-fluid{
+    background-color: #373720;
+    height: 150px;
+}
+.nav{
+    display: flex;
+}
+.logo{
+    height: 120px;
+    margin-right: 25px;
+}
+.title{
+    font-family: 'Monoton', cursive;
+    color: #9EA059;
+    text-align: end;
+}
+h1{
+    font-size: 4rem !important;
+    word-spacing: 1.5rem !important;
+}
+.title>p{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.6rem;
+}
+.nav-link{
+    color:#9EA059 !important;
+    font-size: 1.3rem;
+}
