@@ -8,7 +8,7 @@ class AlbumManager extends AbstractManager
 {
     public const TABLE = "album";
 
-    public function add($params)
+    public function add(array $params): void
     {
         $query = "INSERT INTO album(id, title, artist_id, year) 
         VALUES(:id, :title, :artist_id, :year)";
@@ -20,7 +20,5 @@ class AlbumManager extends AbstractManager
         $stmt->bindValue(":year", $params["year"], \PDO::PARAM_INT);
 
         $stmt->execute();
-
-        return $this->pdo->lastInsertId();
     }
 }

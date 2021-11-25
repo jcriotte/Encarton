@@ -9,7 +9,7 @@ class ArtistManager extends AbstractManager
 {
     public const TABLE = "artist";
 
-    public function add($params)
+    public function add(array $params): void
     {
         $query = "INSERT INTO artist(id, name, picture) VALUES(:id, :name, :picture)";
 
@@ -19,7 +19,5 @@ class ArtistManager extends AbstractManager
         $stmt->bindValue(":picture", $params["url_400"], \PDO::PARAM_STR);
 
         $stmt->execute();
-
-        return $this->pdo->lastInsertId();
     }
 }

@@ -1,9 +1,15 @@
 {% extends 'layoutEnCarton.html.twig' %}
 {% block content %}
 	<div class="Welcome container-fluid">
-		<div class="row">
-			<div class="col-6"><h1>PART 1 recup api lecteur random musique</h1></div>
-            <div class="col-6"><h1>PART 2</h1></div>
+		<div class="row height d-flex justify-content-center align-items-center">
+			<div class="col-md-8">
+				<form method='GET' action="/artist/search">
+					<div class="search d-flex">
+						<input type="text" name="input" class="form-control" placeholder="Nom de l'artiste">
+						<button type="submit" class="btn">Search</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 

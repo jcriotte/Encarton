@@ -8,7 +8,7 @@ class ReleasesManager extends AbstractManager
 {
     public const TABLE = "album";
 
-    public function add($params)
+    public function add(array $params): void
     {
         $query = "INSERT INTO releases(id, album_id, support, year,  picture, deezer_url) 
         VALUES(:id, :album_id, :support, :year,  :picture, :deezer_url)";
@@ -22,7 +22,5 @@ class ReleasesManager extends AbstractManager
         $stmt->bindValue(":deezer_url", $params["deezer_url"], \PDO::PARAM_INT);
 
         $stmt->execute();
-
-        return $this->pdo->lastInsertId();
     }
 }
