@@ -1,0 +1,19 @@
+main {
+    max-width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+}
+
+#message {
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.5rem;
+}
+
+
