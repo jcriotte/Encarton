@@ -1,28 +1,30 @@
 {% extends 'layoutEnCarton.html.twig' %}
 
 {% block content %}
-    <main class='container-artist'>
+	<main
+		class='container-artist'>
 
-        {# listes album #}
-        <section class='albums'>
-            <h2>Listes des albums<h2>
-                <ul>
-                    {% for album in albums %}
-                    <li>{{ album.name }}</li>
-                    <li>{{ album.photo }}</li>
-                    {% endfor %}
-                </ul>
-        </section>
+		{# listes album #}
+		<section class='albums'>
+			<h2>Listes des albums<h2>
+					<ul>
+						{% for album in albums %}
+							<li>{{ album.title }}</li>
+							<li><img class="fit-picture" src="{{ album.picture }}" alt=" {{ album.title }} "></li>
+						{% endfor %}
+					</ul>
+				</section>
 
 
-        {# artiste description #}
-        <section class='artist'>
-            <h2> Informations sur l'artiste<h2>
-                <ul>
-                    {% for artist in artists %}  
-                    <li>{{ artist.name }}</li>
-                    {% endfor %}
-                </ul>
-        </section>
-    </main>
-{% endblock %}
+				{# artiste description #}
+				<section class='artist'>
+					<h2>
+						Informations sur l'artiste<h2>
+							<ul>
+								{% for artist in artists %}
+									<li>{{ artist.name }}</li>
+								{% endfor %}
+							</ul>
+						</section>
+					</main>
+				{% endblock %}

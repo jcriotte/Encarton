@@ -26,7 +26,7 @@ class AlbumManager extends AbstractManager
 
     public function selectByArtist(int $artistId)
     {
-        $query = "SELECT * FROM " . static::TABLE . " WHERE artist_id = :artistId";
+        $query = "SELECT * FROM " . static::TABLE . " JOIN releases ON album_id=album.id WHERE artist_id = :artistId";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindValue(":artistId", $artistId, \PDO::PARAM_INT);
 
