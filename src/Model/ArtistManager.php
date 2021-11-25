@@ -20,4 +20,18 @@ class ArtistManager extends AbstractManager
 
         $stmt->execute();
     }
+
+    public function selectByNameLike(string $input, string $orderBy = '', string $direction = 'ASC'): array
+    {
+        $query = 'SELECT * FROM ' . static::TABLE . ' WHERE name LIKE :input';
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(":input", $input, \PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

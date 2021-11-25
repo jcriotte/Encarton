@@ -13,12 +13,13 @@ class ArtistController extends AbstractController
     {
         //1) il faut voir si l'artiste existe dans la bd
         $artistManager = new ArtistManager();
+        $albumManager = new AlbumManager;
+        $releasesManager = new ReleasesManager;
         $input = "%" . $input . "%";
-        //$artists = $artistManager->selectByNameLike($input);
+        $artists = $artistManager->selectByNameLike($input);
 
         if (empty($artists)) {
-            $albumManager = new AlbumManager;
-            $releasesManager = new ReleasesManager;
+
             $MSAPI = new MusicStoryApi(
                 APP_API_CONSUMERKEY,
                 APP_API_CONSUMERSECRET,
@@ -27,7 +28,6 @@ class ArtistController extends AbstractController
             );
 
             $artistsResultApi = $MSAPI->searchArtist(array('name' => $input), 1, 100);
-
             $artistForBd = [];
             foreach ($artistsResultApi as $artistResultApi) {
                 $artistForBd['id'] = $artistResultApi->id;
@@ -40,6 +40,8 @@ class ArtistController extends AbstractController
                 }
                 
                 $releasesResultApi = $MSAPI->searchRelease(array('artist' => $artistForBd['id'], 'support' => 'LP'), 1, 100);
+                $albumForBd = [];
+                $releaseForBd = [];
                 foreach ($releasesResultApi as $releaseResultApi) {
                     if (!$albumManager->selectOneById($releaseResultApi->id_album)) {
                         $albumForBd['id'] = $releaseResultApi->id_album;
@@ -68,7 +70,11 @@ class ArtistController extends AbstractController
                 }
             }
         } else {
-            return "" ;//$this->twig->render('Result/artist.html.twig', ['artists' => $artists]);
+            foreach($artists as $artist) {
+                $albums = $albumManager->selectByArtist($artist['id']);
+            }
+
+            return $this->twig->render('Result/artist.html.twig', ['artists' => $artists, 'albums' => $albums]);
         }
     }
 }

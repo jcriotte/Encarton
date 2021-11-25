@@ -12,9 +12,11 @@ return [
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
+    'contact' => ['ResultController', 'contact',],
     'genre' => ['TestMSApiController', 'index',],
     'Result/artist' => ['ResultController','artist'],
     'Result/album' => ['ResultController','album'],
     '' => ['WelcomeController', 'index'],
+    'artist/search' => ['ArtistController', 'SearchArtist', ['input']],
+    'AboutUs' => ['WelcomeController', 'about'],
 ];
