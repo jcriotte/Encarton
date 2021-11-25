@@ -16,12 +16,11 @@ class ResultController extends AbstractController
 
     public function contact()
     {
-        $message = [];
+        $messages = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
-            $messages [] = "Merci pour votre message !";
-            return $this->twig->render('Item/contact.html.twig',['messages' => $messages]);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $messages[] = "Merci pour votre message !";
+            return $this->twig->render('Item/contact.html.twig', ['messages' => $messages]);
         }
         return $this->twig->render('Item/contact.html.twig');
     }

@@ -11,8 +11,12 @@ class TestMSApiController extends AbstractController
      */
     public function index(): string
     {
-        $MSAPI = new MusicStoryApi(APP_API_CONSUMERKEY, APP_API_CONSUMERSECRET, APP_API_ACCESSTOKEN,
-        APP_API_TOKENSECRET);
+        $MSAPI = new MusicStoryApi(
+            APP_API_CONSUMERKEY,
+            APP_API_CONSUMERSECRET,
+            APP_API_ACCESSTOKEN,
+            APP_API_TOKENSECRET
+        );
 
         $genre = $MSAPI->getGenre(66);
 
