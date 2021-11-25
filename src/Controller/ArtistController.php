@@ -9,17 +9,16 @@ use App\Model\ReleasesManager;
 
 class ArtistController extends AbstractController
 {
-    public function SearchArtist(string $input)
+    public function searchArtist(string $input)
     {
         //1) il faut voir si l'artiste existe dans la bd
         $artistManager = new ArtistManager();
-        $albumManager = new AlbumManager;
-        $releasesManager = new ReleasesManager;
+        $albumManager = new AlbumManager();
+        $releasesManager = new ReleasesManager();
         $input = "%" . $input . "%";
         $artists = $artistManager->selectByNameLike($input);
 
         if (empty($artists)) {
-
             $MSAPI = new MusicStoryApi(
                 APP_API_CONSUMERKEY,
                 APP_API_CONSUMERSECRET,
@@ -38,8 +37,15 @@ class ArtistController extends AbstractController
                 } catch (\Exception $e) {
                     continue;
                 }
-                
-                $releasesResultApi = $MSAPI->searchRelease(array('artist' => $artistForBd['id'], 'support' => 'LP'), 1, 100);
+
+                $releasesResultApi = $MSAPI->searchRelease(
+                    array(
+                        'artist' => $artistForBd['id'],
+                        'support' => 'LP'
+                    ),
+                    1,
+                    10
+                );
                 $albumForBd = [];
                 $releaseForBd = [];
                 foreach ($releasesResultApi as $releaseResultApi) {
@@ -52,7 +58,7 @@ class ArtistController extends AbstractController
                             $albumManager->add($albumForBd);
                         } catch (\Exception $e) {
                             continue;
-                        }      
+                        }
                     }
                     if (!$releasesManager->selectOneById($releaseResultApi->id)) {
                         $releaseForBd['id'] = $releaseResultApi->id;
@@ -70,7 +76,7 @@ class ArtistController extends AbstractController
                 }
             }
         } else {
-            foreach($artists as $artist) {
+            foreach ($artists as $artist) {
                 $albums = $albumManager->selectByArtist($artist['id']);
             }
 
