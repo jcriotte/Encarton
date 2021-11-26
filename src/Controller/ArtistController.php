@@ -65,8 +65,16 @@ class ArtistController extends AbstractController
                         $releaseForBd['album_id'] = $releaseResultApi->id_album;
                         $releaseForBd['support'] = $releaseResultApi->support;
                         $releaseForBd['year'] = $releaseResultApi->publication_date;
+                        $picturesResultApi = $MSAPI->getPictures($releaseForBd['id'], 'release');
                         $releaseForBd['picture'] = "";
+                        foreach ($picturesResultApi as $pictureResultApi) {
+                            $releaseForBd['picture'] = $pictureResultApi->url_400;
+                        }
+                        $deezersResultApi = $MSAPI->getDeezer($releaseForBd['id'], 'release');
                         $releaseForBd['deezer_url'] = "";
+                        foreach ($deezersResultApi as $deezerResultApi) {
+                            $releaseForBd['deezer_url'] = $deezerResultApi->url;
+                        }
                         try {
                             $releasesManager->add($releaseForBd);
                         } catch (\Exception $e) {
