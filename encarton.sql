@@ -38,7 +38,7 @@ SELECT * FROM album;
 SELECT * FROM artist;
 SELECT * FROM releases;
 
-SELECT * FROM artist ar JOIN album al ON ar.id = al.artist_id JOIN releases re ON al.id = re.album_id WHERE ar.id = 100006;
+SELECT * FROM artist ar JOIN album al ON ar.id = al.artist_id JOIN releases re ON al.id = re.album_id WHERE re.id = 196898;
 
 
 DELETE FROM artist WHERE id>0;

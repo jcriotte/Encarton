@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ArtistManager;
+use App\Model\ReleasesManager;
 
 class ResultController extends AbstractController
 {
@@ -19,7 +20,10 @@ class ResultController extends AbstractController
 
     public function album($id)
     {
-        return $this->twig->render('Result/album.html.twig');
+        $releaseManager = new ReleasesManager();
+        $result = $releaseManager->selectByIdWithRelease($id);
+
+        return $this->twig->render('Result/album.html.twig', ["album" => $result]);
     }
 
     public function contact()
