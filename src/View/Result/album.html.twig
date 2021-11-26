@@ -3,27 +3,28 @@
 {% block content %}
 	<main
 		class="album container-fluid bg-dark">
-		{# liste albums #}
-		<h2 class="text-center pt-5">Nom de l'album{# album.name #}<h2>
+		
+		<h2 class="text-center pt-5">{{album.title}}<h2>
 				<section class='container-fluid'>
 					<div class="albumReview row">
 						<div class="col-6 text-center">
-							<img class="photo" src="/assets/images/chat.jpg{# album.picture #}" alt="miaou" width="500px">
+							<img class="photo" src="{{album.picture}}" alt="miaou" width="500px">
 						</div>
 						<div class="col-6">
 							<div class="details border border-white">
 								<ul>
-									<li class="li">Nom de l'artiste:
-										{# album.artistname #}
+									<li class="li">Nom de l'artiste: 
+										{{album.name}}
 									</li>
-									<li class="li">Année de Parution:
-										{# album.year #}
+									<li class="li">Année de Parution: 
+										{{album.year}}
 									</li>
-									<li class="li">Lien deezer:<a></a>
-										{# album.deezer_url #}
+									<li class="li">Lien deezer: <a href="{{album.deezer_url}}"> Ecouter
+										</a>
 									</li>
 								</ul>
 							</div>
+							<a href="/result/artist?id={{album.artist_id}}" class="text-end"><h2>Retour</h2></a>
 						</div>
 					</div>
 				</section>

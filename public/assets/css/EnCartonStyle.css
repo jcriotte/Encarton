@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Condensed:wght@300&display=swap');
+body{
+    background-color: #212529 !important;
+    height: 100%;
+}
 
 .header{
     background-color: #373720;
@@ -16,6 +20,15 @@
     color: #9EA059;
     text-align: end;
 }
+
+a{
+    text-decoration: none !important;
+    color: #9EA059 !important;
+}
+a:hover{
+    color: #373720 !important;
+}
+
 h1{
     font-size: 4rem !important;
     word-spacing: 1.5rem !important;
