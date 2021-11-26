@@ -2,14 +2,22 @@
 
 namespace App\Controller;
 
+use App\Model\ArtistManager;
+
 class ResultController extends AbstractController
 {
-    public function artist()
+    public function artist($id)
     {
-        return $this->twig->render('Result/artistdur.html.twig');
+        $artistManager = new ArtistManager();
+        $result = $artistManager->selectByIdWithAlbum($id);
+
+        $artist['name'] = $result[0]['name'];
+        $artist['id'] = $result[0]['artist_id'];
+
+        return $this->twig->render('Result/artist.html.twig', ["artist" => $artist, "albums" => $result]);
     }
 
-    public function album()
+    public function album($id)
     {
         return $this->twig->render('Result/album.html.twig');
     }
