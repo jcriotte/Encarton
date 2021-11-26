@@ -13,18 +13,17 @@
 							<li><img class="fit-picture" src="{{ album.picture }}" alt=" {{ album.title }} "></li>
 						{% endfor %}
 					</ul>
-				</section>
+		</section>
 
 
-				{# artiste description #}
-				<section class='artist'>
-					<h2>
-						Informations sur l'artiste<h2>
-							<ul>
-								{% for artist in artists %}
-									<li>{{ artist.name }}</li>
-								{% endfor %}
-							</ul>
-						</section>
-					</main>
-				{% endblock %}
+		{# artiste description #}
+		<section class='artist'>
+			<h2>Informations sur l'artiste<h2>
+					<ul>
+						{% for artist in artists %}
+							<li>{{ artist.name }}</li>
+						{% endfor %}
+					</ul>
+		</section>
+	</main>
+{% endblock %}

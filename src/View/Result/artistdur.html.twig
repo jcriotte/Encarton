@@ -1,0 +1,36 @@
+{% extends 'layoutEnCarton.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/artist.css">
+{% endblock %}
+
+{% block content %}
+	<div class='container-artist'>
+
+		{# listes album #}
+		<section class='albums'>
+			<h2>Listes des albums<h2>
+					<ul>
+						<li>Danse</li>
+						<li><img src="/assets/images/danse.jpg" width="350"></li>
+					</ul>
+					<ul>
+						<li>Danse</li>
+						<li><img src="/assets/images/danse.jpg" width="350"></li>
+					</ul>
+					<ul>
+						<li>Danse</li>
+						<li><img src="/assets/images/danse.jpg" width="350"></li>
+					</ul>
+		</section>
+ 
+
+		{# artiste description #}
+		<section class='artist'>
+			<h2>Informations sur l'artiste<h2>
+					<ul>
+						<li>Nom : David Guetta</li>
+						<li><img src="/assets/images/guetta.jpg" width="250"><li>
+					</ul>
+		</section>
+	</div>
+{% endblock %}
