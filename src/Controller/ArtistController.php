@@ -15,8 +15,7 @@ class ArtistController extends AbstractController
         $artistManager = new ArtistManager();
         $albumManager = new AlbumManager();
         $releasesManager = new ReleasesManager();
-        $input = "%" . $input . "%";
-        $artists = $artistManager->selectByNameLike($input);
+        $artists = $artistManager->selectByNameLike("%" . $input . "%");
 
         if (empty($artists)) {
             $MSAPI = new MusicStoryApi(
@@ -38,13 +37,12 @@ class ArtistController extends AbstractController
                     continue;
                 }
 
-                $releasesResultApi = $MSAPI->searchRelease(
+                $releasesResultApi = $artistResultApi->getReleases(
                     array(
-                        'artist' => $artistForBd['id'],
                         'support' => 'LP'
                     ),
                     1,
-                    10
+                    100
                 );
                 $albumForBd = [];
                 $releaseForBd = [];
@@ -75,12 +73,12 @@ class ArtistController extends AbstractController
                     }
                 }
             }
-        } else {
-            foreach ($artists as $artist) {
-                $albums = $albumManager->selectByArtist($artist['id']);
-            }
-
-            return $this->twig->render('Result/artist.html.twig', ['artists' => $artists, 'albums' => $albums]);
+            $artists = $artistManager->selectByNameLike("%" . $input . "%");
         }
+        foreach ($artists as $artist) {
+            $albums = $albumManager->selectByArtist($artist['id']);
+        }
+
+        return $this->twig->render('Result/artist.html.twig', ['artists' => $artists, 'albums' => $albums]);
     }
 }
