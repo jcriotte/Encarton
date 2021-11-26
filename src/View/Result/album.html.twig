@@ -1,16 +1,31 @@
 {% extends 'layoutEnCarton.html.twig' %}
 
 {% block content %}
-    <main>
-        {# liste albums #}
-        <section class='result-albums'>
-            <h2>Résultat<h2>
-                <ul>
-                    {% for album in albums %}
-                    <li>{{ album.name }}</li>
-                    <li>{{ album.photo }}</li>
-                    {% endfor %}
-                </ul>
-        </section>
-    </main>
-{% endblock %}
+	<main
+		class="album container-fluid bg-dark">
+		{# liste albums #}
+		<h2 class="text-center pt-5">Nom de l'album{# album.name #}<h2>
+				<section class='container-fluid'>
+					<div class="albumReview row">
+						<div class="col-6 text-center">
+							<img class="photo" src="/assets/images/chat.jpg{# album.picture #}" alt="miaou" width="500px">
+						</div>
+						<div class="col-6">
+							<div class="details border border-white">
+								<ul>
+									<li class="li">Nom de l'artiste:
+										{# album.artistname #}
+									</li>
+									<li class="li">Année de Parution:
+										{# album.year #}
+									</li>
+									<li class="li">Lien deezer:<a></a>
+										{# album.deezer_url #}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		{% endblock %}
