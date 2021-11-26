@@ -87,6 +87,6 @@ class ArtistController extends AbstractController
             $albums = $albumManager->selectByArtist($artist['id']);
         }
 
-        return $this->twig->render('Result/artist.html.twig', ['artists' => $artists, 'albums' => $albums]);
+        return $this->twig->render('Result/search.html.twig', ['artists' => $artists, 'albums' => $albums]);
     }
 }

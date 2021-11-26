@@ -1,0 +1,19 @@
+{% extends 'layoutEnCarton.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/artist.css">
+{% endblock %}
+{% block content %}
+	<main
+		class='container-artist'>
+
+		{# artiste description #}
+		<section class='artist'>
+			<h2>Informations sur l'artiste<h2>
+					<ul>
+						{% for artist in artists %}
+							<li><a href="/result/artist?id={{artist.id}}">{{ artist.name }}</a></li>
+						{% endfor %}
+					</ul>
+		</section>
+	</main>
+{% endblock %}

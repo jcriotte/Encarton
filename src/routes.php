@@ -14,9 +14,9 @@ return [
     'items/add' => ['ItemController', 'add',],
     'contact' => ['ResultController', 'contact',],
     'genre' => ['TestMSApiController', 'index',],
-    'Result/artist' => ['ResultController','artist'],
-    'Result/album' => ['ResultController','album'],
+    'result/artist' => ['ResultController','artist', ['id']],
+    'result/album' => ['ResultController','album', ['id']],
     '' => ['WelcomeController', 'index'],
     'artist/search' => ['ArtistController', 'searchArtist', ['input']],
-    'AboutUs' => ['WelcomeController', 'about'],
+    'about' => ['WelcomeController', 'about'],
 ];

@@ -34,4 +34,15 @@ class ArtistManager extends AbstractManager
 
         return $stmt->fetchAll();
     }
+
+    public function selectByIdWithAlbum($id)
+    {
+        $query = "SELECT * FROM artist ar JOIN album al ON ar.id = al.artist_id JOIN releases re ON al.id = re.album_id WHERE ar.id = :id;";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
