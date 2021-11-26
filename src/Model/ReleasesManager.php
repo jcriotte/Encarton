@@ -18,8 +18,8 @@ class ReleasesManager extends AbstractManager
         $stmt->bindValue(":album_id", $params["album_id"], \PDO::PARAM_STR);
         $stmt->bindValue(":support", $params["support"], \PDO::PARAM_STR);
         $stmt->bindValue(":year", $params["year"], \PDO::PARAM_INT);
-        $stmt->bindValue(":picture", $params["picture"], \PDO::PARAM_INT);
-        $stmt->bindValue(":deezer_url", $params["deezer_url"], \PDO::PARAM_INT);
+        $stmt->bindValue(":picture", $params["picture"], \PDO::PARAM_STR);
+        $stmt->bindValue(":deezer_url", $params["deezer_url"], \PDO::PARAM_STR);
 
         $stmt->execute();
     }
