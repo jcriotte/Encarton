@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Condensed:wght@300&display=swap');
 
-.container-fluid{
+.header{
     background-color: #373720;
     height: 150px;
 }
@@ -82,4 +82,22 @@ h1{
 p {
     color: #9EA059;
     margin-left: 100px;
+}
+.album {
+    height: 100vh;
+    color: #9EA059;
+}
+.albumReview{
+    margin-top: 10vh !important;
+}
+.li{
+    margin-bottom: 5vh;
+}
+.details{
+    margin: 5vh;
+    padding-top: 5vh;
+    border-radius: 1rem !important;
+}
+.photo{
+    margin: 5vh;
 }
