@@ -6,7 +6,7 @@ class ResultController extends AbstractController
 {
     public function artist()
     {
-        return $this->twig->render('Result/artist.html.twig');
+        return $this->twig->render('Result/artistdur.html.twig');
     }
 
     public function album()

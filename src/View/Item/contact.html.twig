@@ -1,36 +1,41 @@
 {% extends 'layoutEnCarton.html.twig' %}
 
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/contact.css">
+{% endblock %}
+
 {% block content %}
-<main class='container'>
+<section>
+    <main class='container'>
 
 
-    <form method='POST' class="row">
-        <h2>Contact</h2>
+        <form method='POST' class="row">
+            <h2>Contact</h2>
+            
+            <label for="LastName">Votre Nom</label>
+            <input type="text" id="LastName" name="LastName" placeholder="ex: Doe" required/>
         
-        <label for="LastName">Votre Nom</label>
-        <input type="text" id="LastName" name="LastName" placeholder="ex: Doe" required/>
-      
 
-        <label for="FirstName">Votre Prénom</label>
-        <input type="text" id="FirstName" name="FirstName" placeholder="ex: John" required/>
+            <label for="FirstName">Votre Prénom</label>
+            <input type="text" id="FirstName" name="FirstName" placeholder="ex: John" required/>
 
-        <label for="email">Votre Email</label>
-        <input type="email" id="email" name="email" placeholder="ex: example@seamail.com" />
+            <label for="email">Votre Email</label>
+            <input type="email" id="email" name="email" placeholder="ex: example@seamail.com" />
 
 
-        <label for="message">Commentaires</label>
-        <textarea id="message" name="message" placeholder="Votre message"required></textarea>
+            <label for="message">Commentaires</label>
+            <textarea id="message" name="message" placeholder="Votre message"required></textarea>
 
 
-        <input id="envoie" type="submit" value="Envoyer" />
-        
-        <p id="message">
-          {% for message in messages %}
-               {{message}}
-        </p>
+            <input id="envoie" type="submit" value="Envoyer" />
+         
+        </form>
+            <p id="message">
+            {% for message in messages %}
+                {{message}}
             {% endfor %}
-    </form>
-</main>
-                
+            </p>                
+    </main>
+</section>     
 
 {% endblock %}
